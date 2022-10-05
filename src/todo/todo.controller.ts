@@ -17,21 +17,23 @@ export class TodoController {
     }
 
     @Get('/:id')
-    getTodo(@Param('id') id:string){
-        const todo= this.todoService.getTodo(id)
+    async getTodo(@Param('id') id:string){
+        const todo= await this.todoService.getTodo(id)
         if(!todo){
-         throw new NotFoundException()
+         throw new NotFoundException('Todo Not Found')
         }
         return todo
     }
 
     @Patch('/:id')
-    updatetodo(@Body() body: TodoDTO, @Param('id') id:string){
+    async updatetodo(@Body() body: TodoDTO, @Param('id') id:string){
+        await this.getTodo(id)
         return this.todoService.updateTodo(id, body)
     }
 
     @Delete('/:id')
-    deleteTodo(@Param('id') id:string){
+   async deleteTodo(@Param('id') id:string){
+        await this.getTodo(id)
         return this.todoService.deleteTodo(id)
     }
 }

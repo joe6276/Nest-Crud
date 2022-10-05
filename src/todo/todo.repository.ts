@@ -37,6 +37,6 @@ export class TodoRepository{
     let todos = JSON.parse(contents)
     delete todos[id]
     await writeFile('todo.json', JSON.stringify(todos))
-    return todos
+    return {message:'Todo Deleted'}
     }
 }
