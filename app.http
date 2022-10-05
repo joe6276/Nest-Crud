@@ -1,0 +1,27 @@
+GET  http://localhost:3000/todo
+### Post Request
+
+POST http://localhost:3000/todo
+Content-Type: application/json
+
+{
+    "title":"First Todo",
+    "description": "First Description"
+}
+
+### Get one Todo
+
+GET http://localhost:3000/todo/710
+
+### Update Todo
+PATCH http://localhost:3000/todo/710
+Content-Type: application/json
+
+{
+    "title":"updated Title",
+    "description":"Updated Description"
+}
+
+### Delete Todo
+
+DELETE http://localhost:3000/todo/189
