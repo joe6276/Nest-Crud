@@ -5,16 +5,16 @@ POST http://localhost:3000/todo
 Content-Type: application/json
 
 {
-    "title":"First Todo",
+    "tietle":"",
     "description": "First Description"
 }
 
 ### Get one Todo
 
-GET http://localhost:3000/todo/150
+GET http://localhost:3000/todo/15
 
 ### Update Todo
-PATCH http://localhost:3000/todo/710
+PATCH http://localhost:3000/todo/15
 Content-Type: application/json
 
 {
@@ -24,13 +24,6 @@ Content-Type: application/json
 
 ### Delete Todo
 
-DELETE http://localhost:3000/todo/189
+DELETE http://localhost:3000/todo/15
 
 
-const menu=[
-    {
-        iimage:""
-        title:"Pizza"
-        description:"Description her"
-    }
-]
