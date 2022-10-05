@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, NotFoundException, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, NotFoundException, Param, Patch, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { TodoDTO } from './Todo.dto';
 import { TodoService } from './todo.service';
 
@@ -12,6 +12,7 @@ export class TodoController {
     }
 
     @Post()
+    @UsePipes(ValidationPipe)
     createTodo(@Body() body:TodoDTO){
        return  this.todoService.createTodo(body)
     }
@@ -26,6 +27,7 @@ export class TodoController {
     }
 
     @Patch('/:id')
+    @UsePipes(ValidationPipe)
     async updatetodo(@Body() body: TodoDTO, @Param('id') id:string){
         await this.getTodo(id)
         return this.todoService.updateTodo(id, body)
